@@ -41,14 +41,14 @@ export class search extends Component {
                         value={this.state.text}
                         onChange={this.onChange} />
                     <input type="submit"
-                        value="search"
-                        className='btn btn-dark btn-block' />
+                        value="Search"
+                        className='btn btn-dark btn-block btn-src' />
                 </form>
                 {showClear && (
                     <button
                         className="btn btn-light btn-block"
                         onClick={clearUsers}>
-                        clear
+                        Clear
                     </button>
                 )}
 

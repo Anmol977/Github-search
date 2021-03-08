@@ -7,14 +7,14 @@ const Navbar = ({ icon, title }) => {
     return (
         <nav className="navbar bg-primary">
             <h1>
-                <i className={icon} /> {title}
+                <i className={icon} /> <Link to='/'>{title}</Link>
             </h1>
             <ul>
                 <li>
-                    <Link to="/">home</Link>
+                    <Link to="/" className="btn btn-dk">Home</Link>
                 </li>
                 <li>
-                    <Link to="about">About</Link>
+                    <Link to="about" className="btn btn-dk">About</Link>
                 </li>
             </ul>
 
@@ -23,7 +23,7 @@ const Navbar = ({ icon, title }) => {
 };
 
 Navbar.defaultProps = {
-    title: 'Github Finder',
+    title: ' Github Search',
     icon: 'fab fa-github'
 };
 
