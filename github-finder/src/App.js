@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
-import Userlist from './components/user/userlist'
+import Userlist from './components/users/userlist'
 import User from './components/users/user'
-import Search from './components/user/search'
+import Search from './components/users/search'
 import Alert from './components/layout/alert'
 import About from './components/pages/about'
 import axios from 'axios'
@@ -11,7 +11,6 @@ import './App.css';
 import { BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
-
 
   state = {
     user: [],
@@ -30,7 +29,7 @@ class App extends Component {
   searchUsers = async text => {
     this.setState({ loading: true })
 
-    const res = await axios.get(`https://api.github.com/search/user?q=${text}&?
+    const res = await axios.get(`https://api.github.com/search/users?q=${text}&?
     client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}
     &client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`)
 
@@ -69,12 +68,12 @@ class App extends Component {
                       showClear={user.length > 0 ? true : false}
                       setAlert={this.setAlert}
                     />
-                    <Userlist loading={loading} user={user} />
+                    <Userlist loading={loading} users={user} />
                   </Fragment>
                 )}
               />
               <Route exact path='/about' component={About} />
-              <route exact path='/user/:login' render={props => (
+              <Route exact path='/user/:login' render={props => (
                 <User {...props} getUser={this.getUser} userdet={userdet} loading={loading} />
               )} />
             </Switch>
