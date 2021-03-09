@@ -34,25 +34,31 @@ export class search extends Component {
 
         return (
             <div>
-                <form onSubmit={this.onSubmit} className="form">
+                <form onSubmit={this.onSubmit} >
+
                     <input type="text"
+                        className="form"
                         name="text"
-                        placeholder="search users..."
+                        placeholder="Search Users..."
                         value={this.state.text}
                         onChange={this.onChange} />
                     <input type="submit"
                         value="Search"
                         className='btn btn-dark btn-block btn-src' />
-                </form>
-                {showClear && (
-                    <button
-                        className="btn btn-light btn-block"
-                        onClick={clearUsers}>
-                        Clear
-                    </button>
-                )}
 
-            </div>
+                    {showClear && (
+                        <div>
+                            <p> </p>
+                            <button
+                                className="btn btn-light btn-block"
+                                onClick={clearUsers}>
+                                Clear
+                        </button>
+                        </div>
+                    )}
+                </form>
+
+            </div >
         )
     }
 }
